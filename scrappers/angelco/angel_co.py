@@ -24,7 +24,7 @@ class AngelCoScrapper:
             traceback.print_exc()
 
     def begin_scrap(self):
-        with open('resut.csv', mode='w') as result:
+        with open('result.csv', mode='w') as result:
             result = csv.writer(result, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
             result.writerow(['Names:', 'Description:', 'Location', 'Area', 'Investments:', 'Followers:'])
             rows = self.page.get_rows()
