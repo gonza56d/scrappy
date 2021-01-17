@@ -72,6 +72,3 @@ class AngelCoPage(BasePage):
 
     def get_rows(self):
         yield from self.rows
-
-    def tear_down(self):
-        self.driver.quit()
