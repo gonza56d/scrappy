@@ -1,9 +1,9 @@
 # Pages
-from scrappers import AngelCoScrapper, CapterraComScrapper
+import scrappers
 
 
 executable_path = './chromedriver'
 
 
 if __name__ == '__main__':
-    runner = CapterraComScrapper(executable_path)
+    runner = scrappers.CapterraComScrapper(executable_path)
