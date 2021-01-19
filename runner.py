@@ -6,4 +6,4 @@ executable_path = './chromedriver'
 
 
 if __name__ == '__main__':
-    runner = scrapers.CapterraComScraper(executable_path)
+    runner = scrapers.G2ComScraper(executable_path)

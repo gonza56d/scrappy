@@ -3,6 +3,8 @@
 # Selenium
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
 
 # Project
 from pages import BasePage
@@ -12,10 +14,11 @@ class G2ComPageRow(WebElement):
 
     by_name = (By.XPATH, './/div[@itemprop="name"]')
     by_url = (By.CLASS_NAME, 'd-ib.c-midnight-100.js-log-click')
-    by_description = (By.CLASS_NAME, 'product-listing__paragraph.x-truncate-revealer-initialized')
+    by_description = (By.XPATH, './/span[@class="product-listing__paragraph x-truncate-revealer-initialized"]')
 
-    def __init__(self, web_element):
+    def __init__(self, web_element, driver):
         super().__init__(*tuple(web_element.__dict__.values()))
+        self.wait = WebDriverWait(driver, 10)
 
     @property
     def name(self):
@@ -23,11 +26,12 @@ class G2ComPageRow(WebElement):
 
     @property
     def url(self):
-        return self.find_element(*self.by_url)
+        return self.find_element(*self.by_url).get_attribute('href')
 
     @property
     def description(self):
-        return self.find_element(*self.by_description)
+        self.wait.until(EC.presence_of_element_located(self.by_description))
+        return self.find_element(*self.by_description).text  # TODO
 
 
 class G2ComPage(BasePage):

@@ -15,7 +15,7 @@ class CapterraComPageRow(WebElement):
     by_description = (By.XPATH, './/div[@class="DesktopProductCard__ProductCardDescription-v49nag-5 gZtRlf"]')
     by_by = (By.XPATH, './/h3[@class="VendorNameContainer__VendorHeading-sc-1ns38vc-0 klpzVA Heading-y0oiys-2 kdQRDY"][1]//span')
 
-    def __init__(self, web_element):
+    def __init__(self, web_element, driver):
         super().__init__(*tuple(web_element.__dict__.values()))
 
     @property
