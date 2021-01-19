@@ -4,8 +4,8 @@ import time
 import traceback
 
 
-class BaseScrapper:
-    """Base scrapper class to inherit in page scrappers."""
+class BaseScraper:
+    """Base scraper class to inherit in page scrapers."""
 
     count = 0
     begin = 0

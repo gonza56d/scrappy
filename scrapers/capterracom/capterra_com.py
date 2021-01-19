@@ -1,10 +1,9 @@
-
-# Pages
+# Project
 from pages import CapterraComPage
-from scrappers.base_scrapper import BaseScrapper
+from scrapers.base_scraper import BaseScraper
 
 
-class CapterraComScrapper(BaseScrapper):
+class CapterraComScraper(BaseScraper):
     """Implementation of CapterraComPage"""
 
     page_class = CapterraComPage

@@ -9,7 +9,25 @@ from pages import BasePage
 
 
 class G2ComPageRow(WebElement):
-    pass
+
+    by_name = (By.XPATH, './/div[@itemprop="name"]')
+    by_url = (By.CLASS_NAME, 'd-ib.c-midnight-100.js-log-click')
+    by_description = (By.CLASS_NAME, 'product-listing__paragraph.x-truncate-revealer-initialized')
+
+    def __init__(self, web_element):
+        super().__init__(*tuple(web_element.__dict__.values()))
+
+    @property
+    def name(self):
+        return self.find_element(*self.by_name).text
+
+    @property
+    def url(self):
+        return self.find_element(*self.by_url)
+
+    @property
+    def description(self):
+        return self.find_element(*self.by_description)
 
 
 class G2ComPage(BasePage):

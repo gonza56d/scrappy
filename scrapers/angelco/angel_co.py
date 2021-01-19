@@ -1,9 +1,9 @@
 # Project
 from pages import AngelCoPage
-from scrappers.base_scrapper import BaseScrapper
+from scrapers.base_scraper import BaseScraper
 
 
-class AngelCoScrapper(BaseScrapper):
+class AngelCoScraper(BaseScraper):
     """Implementation of AngelCoPage"""
 
     page_class = AngelCoPage
