@@ -63,12 +63,8 @@ class AngelCoPageRow(WebElement):
 class AngelCoPage(BasePage):
 
     by_row = (By.CLASS_NAME, 'base.item')
+    page_url = 'file:///home/gonza/PycharmProjects/scrappy/html/angel_co.html'
+    page_row_class = AngelCoPageRow
 
     def __init__(self, executable_path):
-        super().__init__(executable_path)
-        self.driver.get('file:///home/gonza/PycharmProjects/scrappy/html/angel_co.html')
-        rows = self.driver.find_elements(*self.by_row)
-        self.rows = [AngelCoPageRow(row) for row in rows]
-
-    def get_rows(self):
-        yield from self.rows
+        super().__init__(executable_path, self.page_url, self.by_row, self.page_row_class)

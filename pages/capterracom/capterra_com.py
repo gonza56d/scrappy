@@ -38,15 +38,8 @@ class CapterraComPageRow(WebElement):
 class CapterraComPage(BasePage):
 
     by_row = (By.CLASS_NAME, 'DesktopProductCard__ProductCardInfo-v49nag-4.jupdha')
+    page_url = 'https://www.capterra.com/architecture-software/'
+    page_row_class = CapterraComPageRow
 
     def __init__(self, executable_path):
-        super().__init__(executable_path)
-        self.driver.get('https://www.capterra.com/architecture-software/')
-        rows = self.driver.find_elements(*self.by_row)
-        self.rows = [CapterraComPageRow(row) for row in rows]
-
-    def get_rows(self):
-        yield from self.rows
-
-    def tear_down(self):
-        self.driver.quit()
+        super().__init__(executable_path, self.page_url, self.by_row, self.page_row_class)
