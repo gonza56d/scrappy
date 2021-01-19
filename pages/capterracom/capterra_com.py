@@ -10,8 +10,10 @@ from pages import BasePage
 
 class CapterraComPageRow(WebElement):
 
-    by_name = (By.XPATH, './/a[@cllass="ProductHeaderSection__ProductHeaderLink-sc-55o1a3-1 nlUij Link__StyledStandardLink-e9c1rj-0 eZMnyW"][1]//span')
-    by_url = (By.XPATH, './/a[@cllass="ProductHeaderSection__ProductHeaderLink-sc-55o1a3-1 nlUij Link__StyledStandardLink-e9c1rj-0 eZMnyW"][1]//span')
+    by_name = (By.XPATH, './/a[@class="ProductHeaderSection__ProductHeaderLink-sc-55o1a3-1 nlUij Link__StyledStandardLink-e9c1rj-0 eZMnyW"][1]//span')
+    by_url = (By.XPATH, './/a[@class="ProductHeaderSection__ProductHeaderLink-sc-55o1a3-1 nlUij Link__StyledStandardLink-e9c1rj-0 eZMnyW"][1]')
+    by_description = (By.XPATH, './/div[@class="DesktopProductCard__ProductCardDescription-v49nag-5 gZtRlf"]')
+    by_by = (By.XPATH, './/h3[@class="VendorNameContainer__VendorHeading-sc-1ns38vc-0 klpzVA Heading-y0oiys-2 kdQRDY"][1]//span')
 
     def __init__(self, web_element):
         super().__init__(*tuple(web_element.__dict__.values()))
@@ -23,6 +25,14 @@ class CapterraComPageRow(WebElement):
     @property
     def url(self):
         return self.find_element(*self.by_url).get_attribute('href')
+
+    @property
+    def description(self):
+        return self.find_element(*self.by_description).text
+
+    @property
+    def by(self):
+        return self.find_element(*self.by_by).text
 
 
 class CapterraComPage(BasePage):

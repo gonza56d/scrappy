@@ -8,7 +8,7 @@ class CapterraComScrapper(BaseScrapper):
     """Implementation of CapterraComPage"""
 
     page_class = CapterraComPage
-    headers = ['name', 'url']
+    headers = ['name', 'url', 'description', 'by']
 
     def __init__(self, executable_path):
         self.page = self.page_class(executable_path)
