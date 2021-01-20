@@ -2,7 +2,7 @@
 import scrapers
 
 
-executable_path = './chromedriver'
+executable_path = './chromedriver_windows.exe'
 
 
 if __name__ == '__main__':

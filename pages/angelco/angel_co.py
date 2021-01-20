@@ -63,7 +63,7 @@ class AngelCoPageRow(WebElement):
 class AngelCoPage(BasePage):
 
     by_row = (By.CLASS_NAME, 'base.item')
-    page_url = 'file:///home/gonza/PycharmProjects/scrappy/html/angel_co.html'
+    page_url = './html/angel_co.html'
     page_row_class = AngelCoPageRow
 
     def __init__(self, executable_path):
