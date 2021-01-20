@@ -12,4 +12,3 @@ class G2ComScraper(BaseScraper):
     def __init__(self, executable_path):
         self.page = self.page_class(executable_path)
         super().__init__(self.page, self.headers)
-

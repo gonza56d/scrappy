@@ -10,7 +10,7 @@ class BasePage:
         self.driver.maximize_window()
         self.driver.get(page_url)
         rows = self.driver.find_elements(*by_row)
-        self.rows = [page_row_class(row, self.driver) for row in rows]
+        self.rows = [page_row_class(row) for row in rows]
 
     def get_rows(self):
         yield from self.rows

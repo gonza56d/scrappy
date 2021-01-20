@@ -19,7 +19,7 @@ class AngelCoPageRow(WebElement):
     by_investments = (By.XPATH, './/div[@class="column investments"]//div[@class="value"]')
     by_followers = (By.XPATH, './/div[@class="column followers"]//div[@class="value"]')
 
-    def __init__(self, web_element, driver):
+    def __init__(self, web_element):
         super().__init__(*tuple(web_element.__dict__.values()))
 
     @property

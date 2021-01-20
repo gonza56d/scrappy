@@ -16,9 +16,13 @@ class G2ComPageRow(WebElement):
     by_url = (By.CLASS_NAME, 'd-ib.c-midnight-100.js-log-click')
     by_description = (By.XPATH, './/span[@class="product-listing__paragraph x-truncate-revealer-initialized"]')
 
-    def __init__(self, web_element, driver):
+    def __init__(self, web_element):
         super().__init__(*tuple(web_element.__dict__.values()))
-        self.wait = WebDriverWait(driver, 10)
+
+    @staticmethod
+    def get_full_xpath(by):
+        by_with_full_xpath = (by[0], by[1].replace('.', ''))
+        return by_with_full_xpath
 
     @property
     def name(self):
@@ -30,7 +34,9 @@ class G2ComPageRow(WebElement):
 
     @property
     def description(self):
-        self.wait.until(EC.presence_of_element_located(self.by_description))
+        e = WebDriverWait(self, 10).until(
+            EC.presence_of_element_located(G2ComPageRow.get_full_xpath(self.by_description))
+        )
         return self.find_element(*self.by_description).text  # TODO
 
 
