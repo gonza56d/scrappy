@@ -7,7 +7,7 @@ class AngelCoScraper(BaseScraper):
     """Implementation of AngelCoPage"""
 
     page_class = AngelCoPage
-    headers = ['name', 'description', 'location', 'area', 'investments', 'followers']
+    headers = ['name_plus_link', 'description', 'location', 'area', 'investments', 'followers']
 
     def __init__(self, executable_path):
         self.page = self.page_class(executable_path)

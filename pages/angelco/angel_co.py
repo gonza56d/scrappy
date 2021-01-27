@@ -27,6 +27,10 @@ class AngelCoPageRow(WebElement):
         return self.find_element(*self.by_name).text
 
     @property
+    def link(self):
+        return self.find_element(*self.by_name).get_attribute('href')
+
+    @property
     def description(self):
         try:
             return self.find_element(*self.by_description).text
@@ -43,6 +47,10 @@ class AngelCoPageRow(WebElement):
             return self.find_element(*self.by_first_tag).text
         elif len(self.tags) == 1:
             return ''
+
+    @property
+    def name_plus_link(self):
+        return self.name + self.link
 
     @property
     def area(self):

@@ -2,8 +2,8 @@
 import scrapers
 
 
-executable_path = './chromedriver_windows.exe'
+executable_path = './chromedriver'
 
 
 if __name__ == '__main__':
-    runner = scrapers.G2ComScraper(executable_path)
+    runner = scrapers.AngelCoScraper(executable_path)
