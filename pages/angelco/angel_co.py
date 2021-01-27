@@ -50,7 +50,7 @@ class AngelCoPageRow(WebElement):
 
     @property
     def name_plus_link(self):
-        return self.name + self.link
+        return self.name + ' / ' + self.link
 
     @property
     def area(self):
@@ -71,7 +71,7 @@ class AngelCoPageRow(WebElement):
 class AngelCoPage(BasePage):
 
     by_row = (By.CLASS_NAME, 'base.item')
-    page_url = './html/angel_co.html'
+    page_url = 'file:///home/gonza/PycharmProjects/scrappy/html/angel_co.html'
     page_row_class = AngelCoPageRow
 
     def __init__(self, executable_path):
