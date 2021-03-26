@@ -6,4 +6,4 @@ executable_path = './chromedriver'
 
 
 if __name__ == '__main__':
-    runner = scrapers.AngelCoScraper(executable_path)
+    runner = scrapers.SignalFxScrapper(executable_path)
