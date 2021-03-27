@@ -9,9 +9,10 @@ from pages.base_page import BasePage
 
 class SignalFxPageRow(WebElement):
 
-    url_replacement = ('file:///firms/', 'https://signal.nfx.com/firms/')
+    url_replacement = ('file:///', 'https://signal.nfx.com/')
 
     by_name = (By.XPATH, './/strong[contains(@class, "sn-investor-name")]')
+    by_link = (By.XPATH, './/a[contains(@href, "investors") and contains(@style, "white")]')
     by_company = (By.XPATH, './/td[1]//div[@class="sn-investor-name-wrapper"]/a')
     by_role = (By.XPATH, './/td[1]//div[@class="sn-investor-name-wrapper"]/span')
     by_sweet_spot = (By.XPATH, './/td[2]//div[@class="flex-column"]//div[1]')
@@ -25,6 +26,11 @@ class SignalFxPageRow(WebElement):
     @property
     def name(self):
         return self.find_element(*self.by_name).text
+
+    @property
+    def link(self):
+        href = self.find_element(*self.by_link).get_attribute('href')
+        return href.replace(*self.url_replacement)
 
     @property
     def company(self):

@@ -6,7 +6,7 @@ from scrapers.base_scraper import BaseScraper
 class SignalFxScrapper(BaseScraper):
 
     page_class = SignalFxPage
-    headers = ['name', 'company_text', 'company_link', 'role', 'sweet_spot', 'range', 'investments', 'categories']
+    headers = ['name', 'link', 'company_text', 'company_link', 'role', 'sweet_spot', 'range', 'investments', 'categories']
 
     def __init__(self, executable_path):
         self.page = self.page_class(executable_path)
